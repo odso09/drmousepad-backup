@@ -2,57 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Dr Mousepad Gaming Design System - Cyber/Gamer Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Gaming Color Palette */
+    --background: 223 47% 11%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Cyber Purple Primary */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 262 100% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neon Cyan Secondary */
+    --secondary: 186 100% 50%;
+    --secondary-foreground: 222 84% 4.9%;
+    --secondary-glow: 186 100% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Electric Green Accent */
+    --accent: 141 76% 48%;
+    --accent-foreground: 222 84% 4.9%;
+    --accent-glow: 141 100% 75%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Gaming Specific Colors */
+    --neon-pink: 328 100% 54%;
+    --neon-blue: 221 83% 53%;
+    --cyber-orange: 33 100% 50%;
+    --rgb-red: 0 100% 50%;
+    --rgb-green: 120 100% 50%;
+    --rgb-blue: 240 100% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--neon-pink)), hsl(var(--secondary)));
+    --gradient-rgb: linear-gradient(135deg, hsl(var(--rgb-red)), hsl(var(--rgb-green)), hsl(var(--rgb-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(223 47% 11% / 0.9), hsl(262 83% 58% / 0.3));
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows & Glows */
+    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.5);
+    --shadow-cyber: 0 0 30px hsl(var(--neon-pink) / 0.4);
+    --shadow-accent: 0 0 25px hsl(var(--accent) / 0.4);
+    --glow-rgb: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--secondary) / 0.4);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: hsl(var(--card));
+    --sidebar-foreground: hsl(var(--foreground));
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary-foreground));
+    --sidebar-accent: hsl(var(--muted));
+    --sidebar-accent-foreground: hsl(var(--foreground));
+    --sidebar-border: hsl(var(--border));
+    --sidebar-ring: hsl(var(--ring));
   }
 
   .dark {
@@ -100,6 +124,115 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-medium;
+  }
+}
+
+@layer components {
+  /* Gaming Button Variants */
+  .btn-neon {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold;
+    @apply shadow-[0_0_20px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.8)];
+    @apply transition-all duration-300 hover:scale-105;
+    background: var(--gradient-primary);
+  }
+
+  .btn-cyber {
+    @apply border-2 border-secondary text-secondary px-6 py-2 rounded-lg font-medium;
+    @apply hover:bg-secondary hover:text-secondary-foreground hover:shadow-[0_0_25px_hsl(var(--secondary)/0.6)];
+    @apply transition-all duration-300;
+  }
+
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg;
+    @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.8)];
+    @apply transition-all duration-300 hover:scale-105 animate-pulse;
+    background: var(--gradient-primary);
+  }
+
+  /* Gaming Card Styles */
+  .card-gamer {
+    @apply bg-card border border-border rounded-lg p-6;
+    @apply shadow-[0_4px_20px_hsl(var(--primary)/0.1)] hover:shadow-[0_8px_30px_hsl(var(--primary)/0.2)];
+    @apply transition-all duration-300 hover:border-primary/30;
+  }
+
+  /* Neon Text Effects */
+  .text-neon {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+  }
+
+  .text-cyber {
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* RGB Animation for Canvas */
+  .rgb-glow {
+    animation: rgb-pulse 3s infinite ease-in-out;
+    box-shadow: var(--glow-rgb);
+  }
+
+  /* Gaming Section Backgrounds */
+  .hero-bg {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  /* Gaming Keyframes */
+  @keyframes rgb-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--rgb-red) / 0.6);
+    }
+    33% { 
+      box-shadow: 0 0 20px hsl(var(--rgb-green) / 0.6);
+    }
+    66% { 
+      box-shadow: 0 0 20px hsl(var(--rgb-blue) / 0.6);
+    }
+  }
+
+  @keyframes neon-flicker {
+    0%, 100% {
+      text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+    }
+    50% {
+      text-shadow: 0 0 20px hsl(var(--primary) / 1), 0 0 30px hsl(var(--primary) / 0.8);
+    }
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 2s infinite ease-in-out;
+  }
+
+  /* Scrollbar Gaming Style */
+  .scrollbar-gamer::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-gamer::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .scrollbar-gamer::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 4px;
+  }
+
+  .scrollbar-gamer::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-secondary);
   }
 }

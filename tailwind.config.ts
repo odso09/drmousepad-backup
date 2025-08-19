@@ -26,11 +26,13 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					glow: 'hsl(var(--secondary-glow))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -42,7 +44,8 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					foreground: 'hsl(var(--accent-foreground))',
+					glow: 'hsl(var(--accent-glow))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -52,7 +55,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
+					sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
@@ -61,6 +64,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Gaming Colors
+				neon: {
+					pink: 'hsl(var(--neon-pink))',
+					blue: 'hsl(var(--neon-blue))',
+					cyan: 'hsl(var(--secondary))',
+					green: 'hsl(var(--accent))'
+				},
+				cyber: {
+					orange: 'hsl(var(--cyber-orange))'
+				},
+				rgb: {
+					red: 'hsl(var(--rgb-red))',
+					green: 'hsl(var(--rgb-green))',
+					blue: 'hsl(var(--rgb-blue))'
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,41 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'rgb-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px hsl(var(--rgb-red) / 0.6)' 
+					},
+					'33%': { 
+						boxShadow: '0 0 20px hsl(var(--rgb-green) / 0.6)' 
+					},
+					'66%': { 
+						boxShadow: '0 0 20px hsl(var(--rgb-blue) / 0.6)' 
+					}
+				},
+				'neon-flicker': {
+					'0%, 100%': {
+						textShadow: '0 0 10px hsl(var(--primary) / 0.8)'
+					},
+					'50%': {
+						textShadow: '0 0 20px hsl(var(--primary) / 1), 0 0 30px hsl(var(--primary) / 0.8)'
+					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.5)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'rgb-pulse': 'rgb-pulse 3s infinite ease-in-out',
+				'neon-flicker': 'neon-flicker 2s infinite ease-in-out',
+				'glow-pulse': 'glow-pulse 2s infinite ease-in-out'
 			}
 		}
 	},
