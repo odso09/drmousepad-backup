@@ -32,10 +32,6 @@ export const Hero = () => {
                   Empieza a Personalizar
                 </Button>
               </Link>
-              
-              <Button variant="outline" className="btn-cyber text-lg px-8 py-6">
-                Ver Galería
-              </Button>
             </div>
 
             <div className="flex flex-wrap gap-6 pt-8">

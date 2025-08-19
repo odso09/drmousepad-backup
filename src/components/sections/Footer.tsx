@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -96,8 +97,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="text-center pt-8 border-t border-border text-muted-foreground">
-          <p>&copy; 2024 Dr Mousepad. Todos los derechos reservados.</p>
+        <div className="flex flex-col items-center gap-6 pt-8 border-t border-border">
+          <p className="text-muted-foreground">&copy; 2024 Dr Mousepad. Todos los derechos reservados.</p>
         </div>
       </div>
 

@@ -56,17 +56,7 @@ export const Features = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 p-6 bg-primary/5 rounded-xl border border-primary/20">
-            <Zap className="w-8 h-8 text-primary animate-glow-pulse" />
-            <div className="text-left">
-              <h4 className="font-bold text-lg">¡Tecnología RGB Avanzada!</h4>
-              <p className="text-muted-foreground">
-                Luces LED sincronizables con efectos personalizables
-              </p>
-            </div>
-          </div>
-        </div>
+  {/* Sección RGB avanzada movida a Index.tsx */}
       </div>
     </section>
   );
