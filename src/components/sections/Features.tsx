@@ -43,14 +43,14 @@ export const Features = () => {
 
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="card-gamer group h-52 flex items-start pt-6 px-4">
+            <div key={index} className="card-gamer card-gamer--purple group h-52 flex items-start pt-6 px-4">
               <div className="grid grid-cols-[64px_1fr] gap-4 items-start w-full">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-8 h-8 text-primary" />
+                  <feature.icon className="w-8 h-8 text-neon-purple" />
                 </div>
 
                 <div className="flex items-start min-h-[3rem]">
-                  <h3 className="text-lg font-bold mb-0 text-neon text-left leading-tight">
+                  <h3 className="text-lg font-bold mb-0 text-neon-purple text-left leading-tight">
                     {feature.title}
                   </h3>
                 </div>

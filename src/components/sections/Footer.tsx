@@ -21,30 +21,30 @@ export const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="container mx-auto px-6 py-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <img src={logo} alt="Dr Mousepad" className="h-36" />
-            <p className="text-muted-foreground">
+          <div className="space-y-2">
+            <img src={logo} alt="Dr Mousepad" className="h-20" />
+            <p className="text-muted-foreground text-sm">
               La mejor calidad en mousepads gaming personalizados de Paraguay.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <Button variant="outline" size="icon" className="btn-cyber">
-                <Facebook className="h-4 w-4" />
+                <Facebook className="h-4 w-4 text-neon-blue" />
               </Button>
               <Button variant="outline" size="icon" className="btn-cyber">
-                <Instagram className="h-4 w-4" />
+                <Instagram className="h-4 w-4 text-neon-blue" />
               </Button>
               <Button variant="outline" size="icon" className="btn-cyber">
-                <Twitter className="h-4 w-4" />
+                <Twitter className="h-4 w-4 text-neon-blue" />
               </Button>
             </div>
           </div>
 
           {/* Legal Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-neon">Legal</h4>
+            <h4 className="font-semibold text-cyber">Legal</h4>
             <div className="space-y-2">
               <button
                 onClick={() => openModalHandler('terms')}
@@ -69,7 +69,7 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-neon">Contacto</h4>
+            <h4 className="font-semibold text-cyber">Contacto</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
@@ -87,8 +87,8 @@ export const Footer = () => {
           </div>
 
           {/* Contact Button (WhatsApp) */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-neon">Soporte</h4>
+          <div className="space-y-2">
+            <h4 className="font-semibold text-cyber">Soporte</h4>
             <a
               href="https://wa.me/595981269504"
               target="_blank"
@@ -106,8 +106,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-6 pt-8 border-t border-border">
-          <p className="text-muted-foreground">&copy; 2025 Dr Mousepad. Todos los derechos reservados.</p>
+        <div className="flex flex-col items-center gap-4 pt-4 border-t border-border">
+          <p className="text-muted-foreground text-sm">&copy; 2025 Dr Mousepad. Todos los derechos reservados.</p>
         </div>
       </div>
 
@@ -119,63 +119,63 @@ export const Footer = () => {
           </DialogHeader>
           <div className="space-y-6 text-sm">
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">1. Introducción</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">1. Introducción</h3>
               <p className="text-muted-foreground">
                 Estos términos y condiciones regulan el uso de los servicios ofrecidos por Dr Mousepad. Al realizar una compra, aceptas estos términos.
               </p>
             </section>
             
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">2. Propiedad Intelectual</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">2. Propiedad Intelectual</h3>
               <p className="text-muted-foreground">
                 El cliente es responsable de que las imágenes y diseños utilizados no infrinjan derechos de autor. Dr Mousepad no se hace responsable por infracciones de propiedad intelectual.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">3. Proceso de Compra</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">3. Proceso de Compra</h3>
               <p className="text-muted-foreground">
                 Una vez confirmado el pedido y el pago, se iniciará la producción. Los cambios posteriores pueden generar costos adicionales.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">4. Precios y Medios de Pago</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">4. Precios y Medios de Pago</h3>
               <p className="text-muted-foreground">
                 Los precios están en Guaraníes (Gs) e incluyen IVA. Aceptamos Bancard, Tigo Money y Mercado Pago PY.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">5. Envíos y Entregas</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">5. Envíos y Entregas</h3>
               <p className="text-muted-foreground">
                 Envío gratuito a todo Paraguay. Tiempo de producción: 3-5 días hábiles. Tiempo de entrega: 1-3 días adicionales según la ubicación.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">6. Cambios y Devoluciones</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">6. Cambios y Devoluciones</h3>
               <p className="text-muted-foreground">
                 Por tratarse de productos personalizados, no se aceptan cambios ni devoluciones, excepto por defectos de fabricación.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">7. Garantías</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">7. Garantías</h3>
               <p className="text-muted-foreground">
                 Garantizamos la calidad de materiales y fabricación por 12 meses contra defectos de fábrica.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">8. Limitación de Responsabilidad</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">8. Limitación de Responsabilidad</h3>
               <p className="text-muted-foreground">
                 Dr Mousepad no se responsabiliza por daños indirectos o consecuenciales derivados del uso del producto.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">9. Ley Aplicable</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">9. Ley Aplicable</h3>
               <p className="text-muted-foreground">
                 Estos términos se rigen por las leyes de la República del Paraguay.
               </p>
@@ -192,56 +192,56 @@ export const Footer = () => {
           </DialogHeader>
           <div className="space-y-6 text-sm">
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Datos Recolectados</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Datos Recolectados</h3>
               <p className="text-muted-foreground">
                 Recolectamos nombre, email, teléfono, dirección de entrega e imágenes para personalización.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Finalidades</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Finalidades</h3>
               <p className="text-muted-foreground">
                 Los datos se utilizan para procesar pedidos, comunicación, entrega y soporte post-venta.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Base Legal</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Base Legal</h3>
               <p className="text-muted-foreground">
                 El tratamiento se basa en la ejecución contractual y consentimiento del cliente.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Conservación</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Conservación</h3>
               <p className="text-muted-foreground">
                 Los datos se conservan durante 5 años para cumplir obligaciones legales y comerciales.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Derechos ARCO</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Derechos ARCO</h3>
               <p className="text-muted-foreground">
                 Tienes derecho a acceder, rectificar, cancelar y oponerte al tratamiento de tus datos contactándonos.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Cookies</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Cookies</h3>
               <p className="text-muted-foreground">
                 Utilizamos cookies técnicas y de análisis para mejorar la experiencia del usuario.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Terceros</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Terceros</h3>
               <p className="text-muted-foreground">
                 Compartimos datos con proveedores de pago y logística únicamente para el cumplimiento del servicio.
               </p>
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2 text-neon">Seguridad</h3>
+              <h3 className="font-semibold text-lg mb-2 text-neon-purple">Seguridad</h3>
               <p className="text-muted-foreground">
                 Implementamos medidas técnicas y organizativas para proteger la información personal.
               </p>
@@ -300,7 +300,7 @@ export const Footer = () => {
               }
             ].map((faq, index) => (
               <div key={index} className="border-l-2 border-primary/20 pl-4">
-                <h4 className="font-semibold text-neon mb-2">{faq.q}</h4>
+                <h4 className="font-semibold text-neon-purple mb-2">{faq.q}</h4>
                 <p className="text-muted-foreground">{faq.a}</p>
               </div>
             ))}
@@ -344,7 +344,7 @@ export const Footer = () => {
             </form>
 
             <div className="border-t pt-6">
-              <h4 className="font-semibold text-neon mb-4">Contacto Directo</h4>
+              <h4 className="font-semibold text-neon-purple mb-4">Contacto Directo</h4>
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-primary" />

@@ -92,26 +92,30 @@ export const Testimonials = () => {
                 {testimonials.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="card-gamer p-4 h-56 flex flex-col justify-between"
+                    className="card-gamer p-4 h-56 grid grid-cols-[56px_1fr] grid-rows-[auto_auto_1fr] gap-3 items-start"
                     style={{ minWidth: 260, flex: '0 0 260px' }}
                   >
-                    <div className="flex items-center mb-4">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full mr-4 ring-2 ring-primary/20"
-                      />
-                      <div>
-                        <h4 className="font-semibold text-sm">{testimonial.name}</h4>
-                        <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-14 h-14 rounded-full col-start-1 row-start-1 ring-2 ring-primary/20"
+                    />
+
+                    <div className="col-start-2 row-start-1">
+                      <h4 className="font-semibold text-sm">{testimonial.name}</h4>
+                      <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                    </div>
+
+                    {/* Stars aligned under the avatar column */}
+                    <div className="col-start-1 row-start-2 flex flex-col items-start mt-1">
+                      <div className="flex space-x-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 star-fuchsia" />
+                        ))}
                       </div>
                     </div>
-                    <div className="flex mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
+
+                    <p className="col-start-1 col-span-2 row-start-3 text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
                   </div>
                 ))}
               </div>
@@ -120,26 +124,29 @@ export const Testimonials = () => {
                 {testimonials.map((testimonial) => (
                   <div
                     key={'dup-' + testimonial.id}
-                    className="card-gamer p-4 h-56 flex flex-col justify-between"
+                    className="card-gamer p-4 h-56 grid grid-cols-[56px_1fr] grid-rows-[auto_auto_1fr] gap-3 items-start"
                     style={{ minWidth: 260, flex: '0 0 260px' }}
                   >
-                    <div className="flex items-center mb-4">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full mr-4 ring-2 ring-primary/20"
-                      />
-                      <div>
-                        <h4 className="font-semibold text-sm">{testimonial.name}</h4>
-                        <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-14 h-14 rounded-full col-start-1 row-start-1 ring-2 ring-primary/20"
+                    />
+
+                    <div className="col-start-2 row-start-1">
+                      <h4 className="font-semibold text-sm">{testimonial.name}</h4>
+                      <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                    </div>
+
+                    <div className="col-start-1 row-start-2 flex flex-col items-start mt-1">
+                      <div className="flex space-x-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 star-fuchsia" />
+                        ))}
                       </div>
                     </div>
-                    <div className="flex mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
+
+                    <p className="col-start-1 col-span-2 row-start-3 text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
                   </div>
                 ))}
               </div>

@@ -16,15 +16,15 @@
     --popover: 222 84% 4.9%;
     --popover-foreground: 0 0% 98%;
 
-    /* Cyber Purple Primary */
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 262 100% 75%;
+  /* Cyber Purple Primary (swapped with secondary) */
+  --primary: 186 100% 50%;
+  --primary-foreground: 222 84% 4.9%;
+  --primary-glow: 186 100% 75%;
 
-    /* Neon Cyan Secondary */
-    --secondary: 186 100% 50%;
-    --secondary-foreground: 222 84% 4.9%;
-    --secondary-glow: 186 100% 75%;
+  /* Neon Cyan Secondary (swapped with primary) */
+  --secondary: 262 83% 58%;
+  --secondary-foreground: 0 0% 98%;
+  --secondary-glow: 262 100% 75%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -52,10 +52,14 @@
     --rgb-blue: 240 100% 50%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  /* Purple gamer accent: two-tone primary for purple touches */
+  --primary-1: 262 83% 48%; /* deeper purple */
+  --primary-2: 282 78% 60%; /* lighter purple */
+  --gradient-primary-purple: linear-gradient(135deg, hsl(var(--primary-1)), hsl(var(--primary-2)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--neon-pink)), hsl(var(--secondary)));
+  --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--neon-pink)));
     --gradient-rgb: linear-gradient(135deg, hsl(var(--rgb-red)), hsl(var(--rgb-green)), hsl(var(--rgb-blue)));
     --gradient-hero: linear-gradient(135deg, hsl(223 47% 11% / 0.9), hsl(262 83% 58% / 0.3));
 
@@ -149,7 +153,13 @@
   @apply transition-all duration-300 hover:scale-105;
   /* Custom slower glow-only pulse for hero CTA (no size change) */
   animation: btn-slow-glow 3s ease-in-out infinite;
-    background: var(--gradient-primary);
+    background: var(--gradient-primary-purple);
+  }
+
+  /* Purple variant for gamer cards */
+  .card-gamer--purple {
+    background: linear-gradient(180deg, hsl(var(--primary-1) / 0.06), hsl(var(--primary-2) / 0.03));
+    border: 1px solid hsl(var(--primary-1) / 0.12);
   }
 
   /* Gaming Card Styles */
@@ -163,6 +173,32 @@
   .text-neon {
     color: hsl(var(--primary));
     text-shadow: 0 0 10px hsl(var(--primary) / 0.8);
+  }
+
+  /* Purple neon text variant for accent titles/icons */
+  .text-neon-purple {
+    color: hsl(var(--primary-1));
+    text-shadow: 0 0 10px hsl(var(--primary-2) / 0.85);
+  }
+
+  /* Fuchsia / neon-pink text utility for highlights (used in testimonials stars) */
+  .text-neon-pink {
+    color: hsl(var(--neon-pink));
+    text-shadow: 0 0 8px hsl(var(--neon-pink) / 0.9);
+  }
+
+  /* Light blue / neon-blue text utility for social icons */
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+    text-shadow: 0 0 8px hsl(var(--neon-blue) / 0.85);
+  }
+
+  /* Star style: fuchsia fill + purple glow */
+  .star-fuchsia {
+    color: hsl(var(--neon-pink));
+    /* ensure SVG uses currentColor */
+    fill: currentColor;
+    filter: drop-shadow(0 0 6px hsl(var(--neon-pink) / 0.9)) drop-shadow(0 0 10px hsl(var(--primary-1) / 0.6));
   }
 
   .text-cyber {

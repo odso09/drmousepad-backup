@@ -17,15 +17,18 @@ export const Hero = () => {
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
       <div className="space-y-4">
-          <h1 className="text-5xl lg:text-6xl font-black text-cyber leading-tight">
+          <h1 className="text-5xl lg:text-6xl font-black text-cyber leading-tight capitalize">
                   Tu Mousepad Gamer
                   <span className="block text-muted-foreground">como nunca antes</span>
                 </h1>
 
                 <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl">
                   Haz que tu escritorio <span className="text-neon font-semibold animate-neon-flicker">cobre vida</span>
-                  <span className="mx-2 inline-block translate-y-0.5" aria-hidden>✨</span>
-                  : diseña tu propio mousepad, <span className="text-neon font-semibold rgb-iter">enciende las luces RGB</span> y dale estilo a tu espacio.
+                  : diseña tu propio mousepad,
+                  <span className="block">
+                    <span className="text-neon font-semibold rgb-iter">enciende las luces RGB</span>
+                    <span className="text-muted-foreground"> y dale estilo a tu espacio.</span>
+                  </span>
                 </p>
             </div>
 
