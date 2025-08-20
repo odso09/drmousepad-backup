@@ -14,8 +14,8 @@ const testimonials = [
     name: "María Fernández",
     city: "Ciudad del Este",
     rating: 5,
-    comment: "El proceso de diseño es súper fácil y el resultado superó mis expectativas. ¡El mousepad es hermoso!",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
+  comment: "El proceso de diseño es súper fácil y el resultado superó mis expectativas. ¡El mousepad es hermoso!",
+  avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
   },
   {
     id: 3,
@@ -33,9 +33,28 @@ const testimonials = [
     comment: "¡Perfecto para mi setup! La calidad de impresión es excelente y llegó súper rápido.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
   }
+  ,
+  {
+    id: 5,
+    name: "Luis Pérez",
+    city: "Pedro Juan Caballero",
+    rating: 5,
+    comment: "Muy buena atención y el producto llegó en perfecto estado. Repetiré la compra.",
+  avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    id: 6,
+    name: "Sofía Gómez",
+    city: "Luque",
+    rating: 4,
+    comment: "Calidad excelente y entrega rápida. Me gustaría más opciones de color en RGB.",
+    avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=100&h=100&fit=crop&crop=face"
+  }
 ];
 
 export const Testimonials = () => {
+  // We'll use a CSS-based marquee: duplicate the items in the DOM and animate the track
+
   return (
     <section className="py-20 bg-card">
       <div className="container mx-auto px-6">
@@ -48,42 +67,107 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="card-gamer">
-              <div className="flex items-center mb-4">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4 ring-2 ring-primary/20"
-                />
-                <div>
-                  <h4 className="font-semibold text-sm">{testimonial.name}</h4>
-                  <p className="text-xs text-muted-foreground">{testimonial.city}</p>
-                </div>
-              </div>
+        <div className="relative w-full">
+          <style>{`
+            .testimonial-scroller::-webkit-scrollbar { display: none; }
+            .testimonial-scroller { -ms-overflow-style: none; scrollbar-width: none; }
 
-              <div className="flex mb-3">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-primary text-primary"
-                  />
+            /* marquee containers */
+            .marquee { overflow: hidden; }
+            .marquee-inner { display: flex; gap: 12px; align-items: stretch; }
+            .marquee-group { display: flex; gap: 12px; }
+
+            /* animate the inner wrapper: translateX from 0 -> -50% for seamless loop */
+            @keyframes marqueeMove {
+              0% { transform: translate3d(0,0,0); }
+              100% { transform: translate3d(-50%,0,0); }
+            }
+
+            .marquee-inner.animate { animation: marqueeMove 30s linear infinite; }
+          `}</style>
+
+          <div className="marquee">
+            <div className="marquee-inner animate" style={{ willChange: 'transform' }}>
+              <div className="marquee-group">
+                {testimonials.map((testimonial) => (
+                  <div
+                    key={testimonial.id}
+                    className="card-gamer p-4 h-56 flex flex-col justify-between"
+                    style={{ minWidth: 260, flex: '0 0 260px' }}
+                  >
+                    <div className="flex items-center mb-4">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full mr-4 ring-2 ring-primary/20"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-sm">{testimonial.name}</h4>
+                        <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                      </div>
+                    </div>
+                    <div className="flex mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
+                  </div>
                 ))}
               </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                "{testimonial.comment}"
-              </p>
+              <div className="marquee-group" aria-hidden>
+                {testimonials.map((testimonial) => (
+                  <div
+                    key={'dup-' + testimonial.id}
+                    className="card-gamer p-4 h-56 flex flex-col justify-between"
+                    style={{ minWidth: 260, flex: '0 0 260px' }}
+                  >
+                    <div className="flex items-center mb-4">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full mr-4 ring-2 ring-primary/20"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-sm">{testimonial.name}</h4>
+                        <p className="text-xs text-muted-foreground">{testimonial.city}</p>
+                      </div>
+                    </div>
+                    <div className="flex mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">"{testimonial.comment}"</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-            <Star className="w-5 h-5 fill-primary text-primary" />
-            <span className="font-semibold">4.9/5</span>
-            <span>basado en 2,847 reseñas</span>
+        
+
+        {/* Metrics row (single horizontal line) */}
+        <div className="mt-10">
+          <div className="flex items-center justify-between gap-4 overflow-x-auto">
+            <div className="flex-1 min-w-[90px] text-center">
+              <div className="text-xl sm:text-2xl font-bold text-cyber">500+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Mousepads Vendidos</div>
+            </div>
+            <div className="flex-1 min-w-[90px] text-center">
+              <div className="text-xl sm:text-2xl font-bold text-cyber">4.9★</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Rating Promedio</div>
+            </div>
+            <div className="flex-1 min-w-[90px] text-center">
+              <div className="text-xl sm:text-2xl font-bold text-cyber">98%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Clientes Satisfechos</div>
+            </div>
+            <div className="flex-1 min-w-[90px] text-center">
+              <div className="text-xl sm:text-2xl font-bold text-cyber">24h / 7</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Soporte Técnico</div>
+            </div>
           </div>
         </div>
       </div>

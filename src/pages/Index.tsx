@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import Header from "@/components/Header";
 import { Gallery } from "@/components/sections/Gallery";
 import { Features } from "@/components/sections/Features";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -9,7 +10,10 @@ import { Link } from "react-router-dom";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
+      <Header />
+      <div className="pt-20"> {/* offset for fixed header */}
+        <Hero />
+      </div>
       <Gallery />
       <Features />
       {/* Botón Empieza a Personalizar antes de los comentarios */}
@@ -21,7 +25,7 @@ const Index = () => {
         </Link>
       </div>
       <Testimonials />
-      <Footer />
+  <Footer />
     </div>
   );
 };

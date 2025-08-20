@@ -146,7 +146,9 @@
   .btn-hero {
     @apply bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg;
     @apply shadow-[0_0_30px_hsl(var(--primary)/0.6)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.8)];
-    @apply transition-all duration-300 hover:scale-105 animate-pulse;
+  @apply transition-all duration-300 hover:scale-105;
+  /* Custom slower glow-only pulse for hero CTA (no size change) */
+  animation: btn-slow-glow 3s ease-in-out infinite;
     background: var(--gradient-primary);
   }
 
@@ -213,8 +215,54 @@
     }
   }
 
+  /* Iterate RGB colors for icons (uses currentColor on SVG) */
+  @keyframes rgb-iter {
+    0% {
+      color: hsl(var(--rgb-red));
+      filter: drop-shadow(0 0 6px hsl(var(--rgb-red) / 0.75));
+    }
+    33% {
+      color: hsl(var(--rgb-green));
+      filter: drop-shadow(0 0 6px hsl(var(--rgb-green) / 0.75));
+    }
+    66% {
+      color: hsl(var(--rgb-blue));
+      filter: drop-shadow(0 0 6px hsl(var(--rgb-blue) / 0.75));
+    }
+    100% {
+      color: hsl(var(--rgb-red));
+      filter: drop-shadow(0 0 6px hsl(var(--rgb-red) / 0.75));
+    }
+  }
+
+  .rgb-iter {
+    animation: rgb-iter 4s linear infinite;
+    color: hsl(var(--rgb-red));
+    transition: color 400ms linear;
+  }
+
   .animate-neon-flicker {
     animation: neon-flicker 2s infinite ease-in-out;
+  }
+
+  /* Slower glow-only animation for prominent CTAs (no transform/scale) */
+  @keyframes btn-slow-glow {
+    0% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.55);
+      filter: brightness(1);
+    }
+    45% {
+      box-shadow: 0 0 55px hsl(var(--primary) / 0.75);
+      filter: brightness(1.05);
+    }
+    55% {
+      box-shadow: 0 0 55px hsl(var(--primary) / 0.75);
+      filter: brightness(1.05);
+    }
+    100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.55);
+      filter: brightness(1);
+    }
   }
 
   /* Scrollbar Gaming Style */

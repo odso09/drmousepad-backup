@@ -1,25 +1,30 @@
-import { Paintbrush, Type, Layers, Zap } from "lucide-react";
+import { Ruler, Upload, Edit3, Zap, Truck } from "lucide-react";
 
 const features = [
   {
-    icon: Paintbrush,
-    title: "1. Seleccionar Tamaño",
-    description: "Elige entre 5 tamaños diferentes, desde 60×30 hasta 90×40 cm"
+    icon: Ruler,
+    title: "1. Elige tu Tamaño",
+    description: "Selecciona el tamaño que mejor se adapte a tu setup"
   },
   {
-    icon: Layers,
-    title: "2. Subir Imagen",
-    description: "Carga tu imagen favorita con controles avanzados de edición"
+    icon: Upload,
+    title: "2. Sube tu Imagen",
+    description: "Carga la imagen que quieras imprimir en tu mousepad"
   },
   {
-    icon: Type,
-    title: "3. Agregar Texto",
-    description: "Personaliza con texto usando más de 10 fuentes gaming"
+    icon: Edit3,
+    title: "3. Personaliza tu Diseño",
+    description: "Ajusta posición, texto y elementos de tu diseño"
   },
   {
     icon: Zap,
-    title: "4. Activar RGB",
-    description: "Agrega efectos de luces RGB para un look más gamer"
+    title: "4. Activa RGB",
+    description: "Configura efectos y colores para las luces RGB"
+  },
+  {
+    icon: Truck,
+    title: "5. Confirma y Recibe tu Mousepad",
+    description: "Confirma tu pedido y recibe el producto en tu domicilio"
   }
 ];
 
@@ -36,22 +41,25 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="card-gamer text-center group">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+            <div key={index} className="card-gamer group h-52 flex items-start pt-6 px-4">
+              <div className="grid grid-cols-[64px_1fr] gap-4 items-start w-full">
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="w-8 h-8 text-primary" />
                 </div>
+
+                <div className="flex items-start min-h-[3rem]">
+                  <h3 className="text-lg font-bold mb-0 text-neon text-left leading-tight">
+                    {feature.title}
+                  </h3>
+                </div>
+
+                {/* Description starts on a new row, aligned under the icon (col-start 1) and spans both columns */}
+                <p className="col-start-1 col-span-2 mt-3 text-sm text-muted-foreground text-left">
+                  {feature.description}
+                </p>
               </div>
-              
-              <h3 className="text-xl font-bold mb-3 text-neon">
-                {feature.title}
-              </h3>
-              
-              <p className="text-muted-foreground">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import logo from '../../assets/logo.png';
 import heroImage from "@/assets/hero-mousepad.jpg";
 
 export const Hero = () => {
@@ -13,17 +14,19 @@ export const Hero = () => {
       />
       
       <div className="container mx-auto px-6 relative z-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-6xl lg:text-7xl font-black text-cyber animate-neon-flicker">
-                Mousepad Gamer
-                <span className="block text-neon">Personalizable</span>
-              </h1>
-              
-              <p className="text-xl text-muted-foreground max-w-md">
-                ¡Diseña tu propio mousepad gamer con luces RGB y personalización completa!
-              </p>
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8">
+      <div className="space-y-4">
+          <h1 className="text-5xl lg:text-6xl font-black text-cyber leading-tight">
+                  Tu Mousepad Gamer
+                  <span className="block text-muted-foreground">como nunca antes</span>
+                </h1>
+
+                <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl">
+                  Haz que tu escritorio <span className="text-neon font-semibold animate-neon-flicker">cobre vida</span>
+                  <span className="mx-2 inline-block translate-y-0.5" aria-hidden>✨</span>
+                  : diseña tu propio mousepad, <span className="text-neon font-semibold rgb-iter">enciende las luces RGB</span> y dale estilo a tu espacio.
+                </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
