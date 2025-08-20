@@ -25,7 +25,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={logo} alt="Dr Mousepad" className="h-28" />
+            <img src={logo} alt="Dr Mousepad" className="h-36" />
             <p className="text-muted-foreground">
               La mejor calidad en mousepads gaming personalizados de Paraguay.
             </p>
