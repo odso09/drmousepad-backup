@@ -3,9 +3,9 @@ import logo from '../assets/logo.png';
 import { ShoppingCart } from 'lucide-react';
 
 export const Header = () => {
-	return (
-	<header className="fixed inset-x-0 top-0 z-50 transform -translate-y-1">
-	<div className="backdrop-blur-sm bg-black/40 border-b border-border py-0 overflow-visible">
+		return (
+		<header className="fixed inset-x-0 top-0 z-50 transform -translate-y-1">
+		<div className="backdrop-blur-sm bg-black/20 border-b border-border py-0 overflow-visible">
 	<div className="container mx-auto px-6 py-0 flex items-center justify-between">
 					<div className="flex items-center gap-4">
 						<img src={logo} alt="Dr Mousepad" className="h-32" />
