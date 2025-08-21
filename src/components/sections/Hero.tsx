@@ -22,12 +22,8 @@ export const Hero = () => {
                 </h1>
 
                 <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl">
-                  Haz que tu escritorio <span className="text-neon-purple font-semibold animate-neon-flicker">cobre vida</span>
-                  : diseña tu propio mousepad,
-                  <span className="block">
-                    <span className="text-neon font-semibold rgb-iter">enciende las luces RGB</span>
-                    <span className="text-muted-foreground"> y dale estilo a tu espacio.</span>
-                  </span>
+                  Haz que tu escritorio cobre vida: diseña tu propio mousepad,
+                  enciende las luces RGB y dale estilo a tu espacio.   
                 </p>
             </div>
 
