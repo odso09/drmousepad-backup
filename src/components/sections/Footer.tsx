@@ -81,7 +81,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                +595 21 123-4567
+                0981269504
               </div>
             </div>
           </div>
@@ -352,7 +352,7 @@ export const Footer = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-primary" />
-                  <span>+595 21 123-4567</span>
+                  <span>0981269504</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-primary">⏰</span>

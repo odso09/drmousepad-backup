@@ -46,7 +46,12 @@ export const Features = () => {
             <div key={index} className="card-gamer card-gamer--purple group h-52 flex items-start pt-6 px-4">
               <div className="grid grid-cols-[64px_1fr] gap-4 items-start w-full">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-8 h-8 text-neon-purple" />
+                  {index === 3 ? (
+                    /* For the "Activa RGB" (index 3) use a filled, fuchsia icon so the interior is painted */
+                    <feature.icon className="w-8 h-8 fill-current icon-rainbow" fill="currentColor" stroke="none" />
+                  ) : (
+                    <feature.icon className="w-8 h-8 text-neon-purple" />
+                  )}
                 </div>
 
                 <div className="flex items-start min-h-[3rem]">

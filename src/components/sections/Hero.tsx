@@ -2,20 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png';
 import heroImage from "@/assets/hero-mousepad.jpg";
+import ThreeGalaxy from '@/components/canvas/ThreeGalaxy';
 
 export const Hero = () => {
   return (
     <section className="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-transparent z-10" />
       
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <ThreeGalaxy className="w-full h-full" starCount={20000} />
+      </div>
       
       <div className="container mx-auto px-6 relative z-20">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
+        <div className="space-y-8 -mt-12">
       <div className="space-y-4">
           <h1 className="text-5xl lg:text-6xl font-black text-cyber leading-tight capitalize">
                   Tu Mousepad Gamer
@@ -23,7 +23,7 @@ export const Hero = () => {
                 </h1>
 
                 <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl">
-                  Haz que tu escritorio <span className="text-neon font-semibold animate-neon-flicker">cobre vida</span>
+                  Haz que tu escritorio <span className="text-neon-purple font-semibold animate-neon-flicker">cobre vida</span>
                   : diseña tu propio mousepad,
                   <span className="block">
                     <span className="text-neon font-semibold rgb-iter">enciende las luces RGB</span>

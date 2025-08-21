@@ -187,6 +187,96 @@
     text-shadow: 0 0 8px hsl(var(--neon-pink) / 0.9);
   }
 
+  /* Combined fuchsia + purple neon for special highlights */
+  .text-neon-fushia-purple {
+    color: hsl(var(--neon-pink));
+    /* subtle dual glow: fuchsia inner + purple outer */
+    text-shadow: 0 0 6px hsl(var(--neon-pink) / 0.95), 0 0 12px hsl(var(--primary-1) / 0.7);
+  }
+
+  /* Finisher effect for big headings: sweep + sparkle */
+  .finisher {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+  }
+
+  /* sweeping highlight */
+  .finisher::after {
+    content: "";
+    position: absolute;
+    left: -8%;
+    top: 60%;
+    transform: translateY(-50%);
+    height: 0.38em;
+    width: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-pink) / 0.95), hsl(var(--primary-2) / 0.65), transparent);
+    border-radius: 999px;
+    filter: blur(8px);
+    opacity: 0.95;
+    pointer-events: none;
+    animation: finisherSwipe 1s cubic-bezier(.2,.9,.2,1) 1;
+  }
+
+  @keyframes finisherSwipe {
+    0% { left: -8%; width: 0; opacity: 0; }
+    40% { left: 10%; width: 60%; opacity: 1; }
+    100% { left: 110%; width: 0; opacity: 0; }
+  }
+
+  /* small sparkle that appears near the end */
+  .finisher::before {
+    content: "";
+    position: absolute;
+    right: -0.4rem;
+    top: -0.18rem;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at 30% 30%, #fff, hsl(var(--neon-pink)));
+    border-radius: 50%;
+    box-shadow: 0 0 8px hsl(var(--neon-pink) / 0.9), 0 0 12px hsl(var(--primary-2) / 0.6);
+    transform: scale(0);
+    opacity: 0;
+    animation: finisherSpark 0.9s ease-out 0.7s 1 forwards;
+  }
+
+  @keyframes finisherSpark {
+    0% { transform: scale(0); opacity: 0; }
+    40% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0; }
+  }
+
+  /* Pulse/glitch variants removed per user request (kept earlier finisher sweep + spark) */
+
+  /* Icon color cycle: smoothly animate icon color through the palette */
+  .icon-rgb-cycle {
+    animation: icon-rgb 6s linear infinite;
+    will-change: color;
+    fill: currentColor; /* ensure SVG uses currentColor for fill */
+  }
+
+  @keyframes icon-rgb {
+    0%   { color: hsl(var(--neon-pink)); }
+    20%  { color: hsl(var(--primary)); }
+    40%  { color: hsl(var(--secondary)); }
+    60%  { color: hsl(var(--neon-blue)); }
+    80%  { color: hsl(var(--primary-2)); }
+    100% { color: hsl(var(--neon-pink)); }
+  }
+
+  /* Full rainbow/hue cycle using filter - cycles through all hues */
+  .icon-rainbow {
+    color: hsl(var(--neon-pink)); /* base color to rotate from */
+    fill: currentColor;
+    animation: icon-hue 4s linear infinite;
+    will-change: filter;
+  }
+
+  @keyframes icon-hue {
+    0%   { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
   /* Light blue / neon-blue text utility for social icons */
   .text-neon-blue {
     color: hsl(var(--neon-blue));
