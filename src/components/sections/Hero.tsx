@@ -2,15 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png';
 import heroImage from "@/assets/hero-mousepad.jpg";
-import ThreeGalaxy from '@/components/canvas/ThreeGalaxy';
 
 export const Hero = () => {
   return (
     <section className="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-transparent z-10" />
       
-      <div className="absolute inset-0 flex items-center justify-center">
-        <ThreeGalaxy className="w-full h-full" starCount={20000} />
+      <div className="absolute inset-0">
+        <img src={heroImage} alt="Hero" className="w-full h-full object-cover" />
       </div>
       
       <div className="container mx-auto px-6 relative z-20">
