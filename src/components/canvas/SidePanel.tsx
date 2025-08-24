@@ -55,11 +55,7 @@ export const SidePanel = ({
             <span className="font-medium">{size} cm</span>
           </div>
 
-          {/* Texts */}
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">Textos:</span>
-            <span className="font-medium">{textCount}</span>
-          </div>
+
 
           {/* Logo */}
           <div className="flex justify-between items-center">
