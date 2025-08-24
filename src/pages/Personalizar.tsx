@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { CanvasEditor } from '@/components/canvas/CanvasEditor';
 import { SidePanel } from '@/components/canvas/SidePanel';
 import { useCanvasState } from '@/hooks/useCanvasState';
+import { Header } from '@/components/Header';
 
 const Personalizar = () => {
   const {
@@ -19,9 +20,11 @@ const Personalizar = () => {
   } = useCanvasState();
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto p-6">
-        <div className="mb-8">
+    <>
+      <Header />
+      <div className="min-h-screen bg-background pt-28">
+        <div className="container mx-auto p-6">
+          <div className="mb-8">
           <h1 className="text-4xl font-bold text-cyber mb-2">
             Personaliza Tu Mousepad
           </h1>
@@ -62,8 +65,9 @@ const Personalizar = () => {
             />
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
