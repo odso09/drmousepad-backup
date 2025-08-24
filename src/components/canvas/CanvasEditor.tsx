@@ -309,12 +309,10 @@ export const CanvasEditor = ({
             <h3 className="text-base font-bold">Luces RGB</h3>
           </div>
           <div className="flex items-center justify-between">
-            <div>
-              <Label className="text-base">Activar RGB (+50,000 Gs)</Label>
-              <p className="text-xs text-muted-foreground">Añade efectos de luces LED sincronizables</p>
-            </div>
+            <Label className="text-base">Activar RGB (+50,000 Gs)</Label>
             <Switch checked={rgb} onCheckedChange={setRgb} />
           </div>
+          <p className="text-xs text-muted-foreground mt-1">Añade efectos de luces LED sincronizables</p>
         </div>
       </div>
     </div>
