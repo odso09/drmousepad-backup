@@ -104,27 +104,52 @@ export const CanvasEditor = ({
 
   return (
     <div className="space-y-6">
-      {/* Size Selection */}
-      <div className="card-gamer">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-            1
+      {/* Size Selection & Image Upload Side by Side */}
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Selección de tamaño */}
+        <div className="card-gamer w-full md:w-1/2">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
+              1
+            </div>
+            <h3 className="text-xl font-bold">Seleccionar Tamaño</h3>
           </div>
-          <h3 className="text-xl font-bold">Seleccionar Tamaño</h3>
+          <Select value={size} onValueChange={setSize}>
+            <SelectTrigger className="w-full">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {sizes.map(sizeOption => (
+                <SelectItem key={sizeOption.value} value={sizeOption.value}>
+                  {sizeOption.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-        
-        <Select value={size} onValueChange={setSize}>
-          <SelectTrigger className="w-full">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {sizes.map(sizeOption => (
-              <SelectItem key={sizeOption.value} value={sizeOption.value}>
-                {sizeOption.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {/* Subir imagen */}
+        <div className="card-gamer w-full md:w-1/2">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-secondary-foreground font-bold">
+              2
+            </div>
+            <h3 className="text-xl font-bold">Subir Imagen</h3>
+          </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png"
+            onChange={handleImageUpload}
+            className="hidden"
+          />
+          <Button 
+            onClick={() => fileInputRef.current?.click()}
+            className="btn-cyber w-full"
+          >
+            <Upload className="w-4 h-4 mr-2" />
+            Seleccionar Imagen
+          </Button>
+        </div>
       </div>
 
       {/* Canvas Preview */}
@@ -211,153 +236,82 @@ export const CanvasEditor = ({
         </div>
       </div>
 
-      {/* Image Upload */}
-      <div className="card-gamer">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-secondary-foreground font-bold">
-            2
-          </div>
-          <h3 className="text-xl font-bold">Subir Imagen</h3>
-        </div>
-        
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/jpeg,image/png"
-          onChange={handleImageUpload}
-          className="hidden"
-        />
-        
-        <Button 
-          onClick={() => fileInputRef.current?.click()}
-          className="btn-cyber w-full"
-        >
-          <Upload className="w-4 h-4 mr-2" />
-          Seleccionar Imagen
-        </Button>
-      </div>
+  {/* ...el resto del código permanece igual... */}
 
-      {/* Text */}
-      <div className="card-gamer">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground font-bold">
-            3
+      {/* Opciones: Agregar Texto, Logo, RGB en línea */}
+      <div className="flex flex-col md:flex-row gap-4 mt-4">
+        {/* Agregar Texto */}
+        <div className="card-gamer flex-1 min-w-0">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground font-bold">3</div>
+            <h3 className="text-base font-bold">Agregar Texto</h3>
           </div>
-          <h3 className="text-xl font-bold">Agregar Texto</h3>
-        </div>
-        
-        <div className="space-y-4">
-          <div>
+          <div className="space-y-2">
             <Label>Texto</Label>
-            <Input
-              value={newText}
-              onChange={(e) => setNewText(e.target.value)}
-              placeholder="Ingresa tu texto..."
-            />
-          </div>
-          
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Label>Fuente</Label>
-              <Select value={selectedFont} onValueChange={setSelectedFont}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {fonts.map(font => (
-                    <SelectItem key={font} value={font} style={{ fontFamily: font }}>
-                      {font}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div>
-              <Label>Color</Label>
-              <div className="flex gap-2">
-                <Input
-                  type="color"
-                  value={textColor}
-                  onChange={(e) => setTextColor(e.target.value)}
-                  className="w-16 h-10"
-                />
-                <Input
-                  value={textColor}
-                  onChange={(e) => setTextColor(e.target.value)}
-                  className="flex-1"
-                />
+            <Input value={newText} onChange={(e) => setNewText(e.target.value)} placeholder="Ingresa tu texto..." />
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <Label>Fuente</Label>
+                <Select value={selectedFont} onValueChange={setSelectedFont}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    {fonts.map(font => (
+                      <SelectItem key={font} value={font} style={{ fontFamily: font }}>{font}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label>Color</Label>
+                <div className="flex gap-2">
+                  <Input type="color" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="w-10 h-8" />
+                  <Input value={textColor} onChange={(e) => setTextColor(e.target.value)} className="flex-1" />
+                </div>
               </div>
             </div>
+            <Button onClick={handleAddText} className="btn-neon w-full"><Type className="w-4 h-4 mr-2" />Agregar Texto</Button>
           </div>
-          
-          <Button onClick={handleAddText} className="btn-neon w-full">
-            <Type className="w-4 h-4 mr-2" />
-            Agregar Texto
-          </Button>
         </div>
-      </div>
-
-      {/* Logo */}
-      <div className="card-gamer">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 bg-cyber-orange rounded-full flex items-center justify-center text-background font-bold">
-            4
+        {/* Logo Dr Mousepad */}
+        <div className="card-gamer flex-1 min-w-0">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-8 bg-cyber-orange rounded-full flex items-center justify-center text-background font-bold">4</div>
+            <h3 className="text-base font-bold">Logo Dr Mousepad</h3>
           </div>
-          <h3 className="text-xl font-bold">Logo Dr Mousepad</h3>
-        </div>
-        
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <Label>Quitar logo (+30,000 Gs)</Label>
-            <Switch
-              checked={logo.removed}
-              onCheckedChange={(checked) => setLogo({ ...logo, removed: checked })}
-            />
-          </div>
-          
-          {!logo.removed && (
-            <div>
-              <Label>Posición del logo</Label>
-              <Select 
-                value={logo.position} 
-                onValueChange={(position: any) => setLogo({ ...logo, position })}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="top-left">Superior Izquierda</SelectItem>
-                  <SelectItem value="top-right">Superior Derecha</SelectItem>
-                  <SelectItem value="bottom-left">Inferior Izquierda</SelectItem>
-                  <SelectItem value="bottom-right">Inferior Derecha</SelectItem>
-                </SelectContent>
-              </Select>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <Label>Quitar logo (+30,000 Gs)</Label>
+              <Switch checked={logo.removed} onCheckedChange={(checked) => setLogo({ ...logo, removed: checked })} />
             </div>
-          )}
-        </div>
-      </div>
-
-      {/* RGB */}
-      <div className="card-gamer">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 bg-neon-pink rounded-full flex items-center justify-center text-background font-bold">
-            5
+            {!logo.removed && (
+              <div>
+                <Label>Posición del logo</Label>
+                <Select value={logo.position} onValueChange={(position: any) => setLogo({ ...logo, position })}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="top-left">Superior Izquierda</SelectItem>
+                    <SelectItem value="top-right">Superior Derecha</SelectItem>
+                    <SelectItem value="bottom-left">Inferior Izquierda</SelectItem>
+                    <SelectItem value="bottom-right">Inferior Derecha</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
           </div>
-          <h3 className="text-xl font-bold">Luces RGB</h3>
         </div>
-        
-        <div className="flex items-center justify-between">
-          <div>
-            <Label className="text-base">Activar RGB (+50,000 Gs)</Label>
-            <p className="text-sm text-muted-foreground">
-              Añade efectos de luces LED sincronizables
-            </p>
+        {/* Luces RGB */}
+        <div className="card-gamer flex-1 min-w-0">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-8 bg-neon-pink rounded-full flex items-center justify-center text-background font-bold">5</div>
+            <h3 className="text-base font-bold">Luces RGB</h3>
           </div>
-          <Switch
-            checked={rgb}
-            onCheckedChange={setRgb}
-          />
+          <div className="flex items-center justify-between">
+            <div>
+              <Label className="text-base">Activar RGB (+50,000 Gs)</Label>
+              <p className="text-xs text-muted-foreground">Añade efectos de luces LED sincronizables</p>
+            </div>
+            <Switch checked={rgb} onCheckedChange={setRgb} />
+          </div>
         </div>
       </div>
     </div>
