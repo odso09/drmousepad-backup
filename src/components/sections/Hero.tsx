@@ -42,7 +42,7 @@ export const Hero = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 bg-secondary rounded-full" />
-                Garantía de 1 año
+                Garantía de 6 meses
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 bg-primary rounded-full" />
