@@ -163,7 +163,7 @@ export const Footer = () => {
             <section>
               <h3 className="font-semibold text-lg mb-2 text-neon-purple">7. Garantías</h3>
               <p className="text-muted-foreground">
-                Garantizamos la calidad de materiales y fabricación por 12 meses contra defectos de fábrica.
+                Garantizamos la calidad de materiales y fabricación por 6 meses contra defectos de fábrica.
               </p>
             </section>
 
