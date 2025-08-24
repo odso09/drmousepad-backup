@@ -1,3 +1,4 @@
+import logoImg from '@/assets/logo.png';
 import { useState, useRef, useCallback } from 'react';
 import { Upload, Type, Image as ImageIcon, Palette, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -221,16 +222,17 @@ export const CanvasEditor = ({
 
             {/* Logo */}
             {!logo.removed && (
-              <div 
-                className={`absolute text-xs font-bold text-primary/70 ${
+              <img
+                src={logoImg}
+                alt="Logo Dr Mousepad"
+                className={`absolute h-10 w-auto ${
                   logo.position === 'top-left' ? 'top-2 left-2' :
                   logo.position === 'top-right' ? 'top-2 right-2' :
                   logo.position === 'bottom-left' ? 'bottom-2 left-2' :
                   'bottom-2 right-2'
                 }`}
-              >
-                Dr Mousepad
-              </div>
+                style={{ maxWidth: '80px', maxHeight: '40px' }}
+              />
             )}
           </div>
         </div>
@@ -247,10 +249,18 @@ export const CanvasEditor = ({
             <h3 className="text-base font-bold">Agregar Texto</h3>
           </div>
           <div className="space-y-2">
-            <Label>Texto</Label>
-            <Input value={newText} onChange={(e) => setNewText(e.target.value)} placeholder="Ingresa tu texto..." />
-            <div className="grid grid-cols-2 gap-2">
-              <div>
+            <div className="flex gap-2 w-full">
+              <div className="flex-1">
+                <Label>Texto</Label>
+                <Input value={newText} onChange={(e) => setNewText(e.target.value)} placeholder="Ingresa tu texto..." />
+              </div>
+              <div className="flex flex-col items-center justify-end">
+                <Label className="mb-1">Color</Label>
+                <Input type="color" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="w-10 h-10" />
+              </div>
+            </div>
+            <div className="flex gap-2 w-full mt-2">
+              <div className="flex-1">
                 <Label>Fuente</Label>
                 <Select value={selectedFont} onValueChange={setSelectedFont}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
@@ -261,15 +271,8 @@ export const CanvasEditor = ({
                   </SelectContent>
                 </Select>
               </div>
-              <div>
-                <Label>Color</Label>
-                <div className="flex gap-2">
-                  <Input type="color" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="w-10 h-8" />
-                  <Input value={textColor} onChange={(e) => setTextColor(e.target.value)} className="flex-1" />
-                </div>
-              </div>
+              <Button onClick={handleAddText} className="btn-neon h-10 mt-auto"><Type className="w-4 h-4 mr-2" />Agregar Texto</Button>
             </div>
-            <Button onClick={handleAddText} className="btn-neon w-full"><Type className="w-4 h-4 mr-2" />Agregar Texto</Button>
           </div>
         </div>
         {/* Logo Dr Mousepad */}
